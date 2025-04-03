@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var HologramsRouter = require('./routes/Holograms');
-var Holograms = require('./routes/users');
+
 
 var app = express();
 
