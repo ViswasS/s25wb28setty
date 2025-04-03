@@ -14,11 +14,16 @@ block content
           p Origin: #{item.origin}
           p Tone: #{item.tone}
           p Clarity: 
-            span(style="cursor:pointer; text-decoration:underline; color:blue;", onclick="buy(#{index})") #{item.clarity}
+            span(class="clarity-value", data-index=index) #{item.clarity}
 
   script.
-    function buy(index) {
-       alert(`You purchased item ${index}`);
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".clarity-value").forEach(function (element) {
+        element.addEventListener("click", function () {
+          const index = this.getAttribute("data-index");
+          alert(`You purchased item ${index}`);
+        });
+      });
+    });
 
 
