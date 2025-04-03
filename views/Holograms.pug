@@ -5,11 +5,20 @@ block content
   h2 Search results: Holograms
 
   - var results = [{ origin: 'Interference of Light', tone: 'Yellow', clarity: 8 }, { origin: 'Recording the Pattern', tone: 'Black', clarity: 6 }, { origin: 'Reconstructing the Image', tone: 'White', clarity: 9 }]
+
   .container-fluid
     .row
-      each item in results
-        .col-sm-2
+      each item, index in results
+        .col-sm-2(style="border:1px solid black; padding:10px; margin:5px;")
           h6 Holograms
           p Origin: #{item.origin}
           p Tone: #{item.tone}
-          p Clarity: #{item.clarity}
+          p Clarity: 
+            span(style="cursor:pointer; text-decoration:underline; color:blue;", onclick="buy(#{index})") #{item.clarity}
+
+  script.
+    function buy(index) {
+       alert(`You purchased item ${index}`);
+    }
+
+
